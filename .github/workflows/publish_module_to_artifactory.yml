@@ -1,0 +1,17 @@
+name: Publish module
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*.*.*'    
+
+jobs:
+  publish:
+    uses: CareSourceIT/CPD-Terraform-InfrastructureManagement/.github/workflows/publish_terraform_module_to_artifactory.yml@v1.2.0
+    with:
+      module_path: '.'         
+      module_namespace: network    # Options:  data, network, ai, database, compute, security, observability
+      module_provider: azurerm
+      # tag: v1.0.0            # optional override, normally not needed
+    secrets: inherit
