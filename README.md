@@ -1,7 +1,6 @@
+## Example usage
 
-
-Example usage
-
+```hcl
 module "zscaler_cc_vmss" {
   source = "../../modules/vmss-linux"
 
@@ -31,7 +30,7 @@ module "zscaler_cc_vmss" {
   }
 
   backend_address_pool_ids = [
-    azurerm_lb_backend_address_pool.cc.id
+    azurerm_lb_backend_address_pool.cc.id,
   ]
 
   identity_type = "SystemAssigned"
@@ -42,3 +41,4 @@ module "zscaler_cc_vmss" {
     managed_by  = "terraform"
   }
 }
+```
